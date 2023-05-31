@@ -1,0 +1,22 @@
+#logo{
+   max-height: 90px;
+   width: 80px;
+}
+.search{
+   width: 70%;
+   justify-content: center;
+   text-align: center;
+   margin: 0 auto;
+   padding: 2%;
+}
+.table img{
+   width: 200px;
+   height: 200px;
+   object-fit: cover;
+overflow: hidden;
+}
+img{
+   max-height: 400px;
+   object-fit: cover;
+overflow: hidden;
+}

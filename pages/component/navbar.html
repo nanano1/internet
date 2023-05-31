@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../static/css/bulma/css/bulma.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="../../static/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js"></script>
+    <link href="../../static/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>纹样库</title>
+</head>
+<body>
+<nav class="navbar is-light" >
+    <div class="navbar-brand">
+      <a class="navbar-item" >
+        <img src="../static/pic/logo.png" alt="Logo" id="logo">
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" >
+        <a class="navbar-item" onclick="jump('/')" style="text-decoration: none;">
+          首页
+        </a>
+        <a class="navbar-item" onclick="jump('/allpic')" style="text-decoration: none;">
+          纹样库
+        </a>
+        <a class="navbar-item" onclick="jump('/product')" style="text-decoration: none;">
+        产品定制
+        </a>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary" style="text-decoration: none;">
+              <strong>注册</strong>
+            </a>
+            <a class="button is-light" style="text-decoration: none;">
+              登录
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <script>
+        function jump(url) {
+        location.href=url
+      }
+  </script>
