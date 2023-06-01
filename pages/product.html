@@ -3,11 +3,10 @@
 <body>
   <section class="section" style="background-color:#77a075 ;">
     <div class="container">
-      <h1 class="title">产品定制</h1>
       <div class="tabs is-centered">
         <ul>
-          <li class="is-active"><a>茶具</a></li>
-          <li><a>茶叶包装</a></li>
+          <li class="is-active"><a>现有产品</a></li>
+          <li><a>效果图</a></li>
         </ul>
       </div>
       <div class="tab-content">
@@ -60,7 +59,35 @@
               <div class="card">
                 <div class="card-image">
                   <figure class="image is-4by3">
-                    <img src="path_to_tea_packaging_image_2.jpg" alt="茶叶包装图片">
+                    <img src="../static/pic/包装2.png" alt="茶叶包装图片">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <h2 class="subtitle">茶叶包装名称 2</h2>
+                  <p>在这里添加关于茶叶包装的描述...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="columns is-multiline">
+            <div class="column is-6">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="../static/pic/包装3.png" alt="茶叶包装图片">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <h2 class="subtitle">茶叶包装名称 1</h2>
+                  <p>在这里添加关于茶叶包装的描述...</p>
+                </div>
+              </div>
+            </div>
+            <div class="column is-6">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="../static/pic/包装4.png" alt="茶叶包装图片">
                   </figure>
                 </div>
                 <div class="card-content">
@@ -96,7 +123,6 @@
           contents.forEach(function(content) {
             content.style.display = 'none';
           });
-
           // 显示对应索引的Tab内容
           contents[index].style.display = 'block';
         });
@@ -104,7 +130,5 @@
     });
   </script>
 </body>
-
-  
-  </html>
+</html>
   
