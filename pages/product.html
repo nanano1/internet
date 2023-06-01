@@ -1,117 +1,110 @@
 <% include component/navbar.html %>
 
 <body>
-    <div class="tabs">
-      <ul>
-        <li class="is-active" data-tab="tea-set-tab"><a>茶具</a></li>
-        <li data-tab="tea-packaging-tab"><a>茶叶包装</a></li>
-      </ul>
+  <section class="section" style="background-color:#77a075 ;">
+    <div class="container">
+      <h1 class="title">产品定制</h1>
+      <div class="tabs is-centered">
+        <ul>
+          <li class="is-active"><a>茶具</a></li>
+          <li><a>茶叶包装</a></li>
+        </ul>
+      </div>
+      <div class="tab-content">
+        <div class="content is-active">
+          <div class="columns is-multiline">
+            <div class="column is-6">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="../static/pic/茶具1.jpg" style="margin:2% ;" alt="茶具图片">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <h2 class="subtitle">茶具名称 1</h2>
+                  <p>在这里添加关于茶具的描述...</p>
+                </div>
+              </div>
+            </div>
+            <div class="column is-6">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="../static/pic/茶具2.jpg" alt="茶具图片">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <h2 class="subtitle">茶具名称 2</h2>
+                  <p>在这里添加关于茶具的描述...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content" style="display:none ;">
+          <div class="columns is-multiline">
+            <div class="column is-6">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="../static/pic/包装1.png" alt="茶叶包装图片">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <h2 class="subtitle">茶叶包装名称 1</h2>
+                  <p>在这里添加关于茶叶包装的描述...</p>
+                </div>
+              </div>
+            </div>
+            <div class="column is-6">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="path_to_tea_packaging_image_2.jpg" alt="茶叶包装图片">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <h2 class="subtitle">茶叶包装名称 2</h2>
+                  <p>在这里添加关于茶叶包装的描述...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  
-    <section class="section" id="tea-set-tab">
-      <div class="container">
-        <h1 class="title">茶具</h1>
-        <div class="columns">
-          <div class="column">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="path/to/tea_set_1.jpg" alt="Tea Set 1">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                  <h2 class="subtitle">茶具名称</h2>
-                  <p>茶具描述</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="path/to/tea_set_2.jpg" alt="Tea Set 2">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                  <h2 class="subtitle">茶具名称</h2>
-                  <p>茶具描述</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Add more tea sets here -->
-        </div>
-      </div>
-    </section>
-  
-    <section class="section" id="tea-packaging-tab" style="display: none;">
-      <div class="container">
-        <h1 class="title">茶叶包装</h1>
-        <div class="columns">
-          <div class="column">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="path/to/tea_packaging_1.jpg" alt="Tea Packaging 1">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                  <h2 class="subtitle">茶叶包装名称</h2>
-                  <p>茶叶包装描述</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="path/to/tea_packaging_2.jpg" alt="Tea Packaging 2">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                  <h2 class="subtitle">茶叶包装名称</h2>
-                  <p>茶叶包装描述</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Add more tea packagings here -->
-        </div>
-      </div>
-    </section>
-  
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        // 获取 Tab 切换的元素
-        var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs li'));
-  
-        // 为每个 Tab 绑定点击事件
-        tabs.forEach(function (tab) {
-          tab.addEventListener('click', function () {
-            // 切换选中状态
-            tabs.forEach(function (tab) {
-              tab.classList.remove('is-active');
-            });
-            this.classList.add('is-active');
-  
-            // 切换显示对应的内容
-            var target = this.dataset.tab;
-            var sections = Array.prototype.slice.call(document.querySelectorAll('section'));
-            sections.forEach(function (section) {
-              section.style.display = 'none';
-            });
-            document.getElementById(target).style.display = 'block';
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 获取所有Tab项和Tab内容
+      const tabs = Array.from(document.querySelectorAll('.tabs li'));
+      const contents = Array.from(document.querySelectorAll('.tab-content .content'));
+
+      // 为每个Tab项添加点击事件处理程序
+      tabs.forEach(function(tab, index) {
+        tab.addEventListener('click', function() {
+          // 删除所有Tab项的is-active类
+          tabs.forEach(function(tab) {
+            tab.classList.remove('is-active');
           });
+
+          // 添加点击的Tab项的is-active类
+          this.classList.add('is-active');
+
+          // 隐藏所有Tab内容
+          contents.forEach(function(content) {
+            content.style.display = 'none';
+          });
+
+          // 显示对应索引的Tab内容
+          contents[index].style.display = 'block';
         });
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
   
   </html>
   

@@ -28,6 +28,9 @@ app.get('/demo',async(req,resp)=>{
 app.get('/login',async(req,resp)=>{
     resp.render('login')
 })
+app.get('/regists',async(req,resp)=>{
+    resp.render('regists')
+})
 app.listen(3000,()=>{
     console.log("server is strart,open localhost:3000")
 })

@@ -1,8 +1,218 @@
-<% for(var i=0;i<json.arr.length;i++) {%>
-  <table>
-    <td>
-      <div>用户名：<%=json.arr[i].url%> 密码：<%=json.arr[i].tittle%></div>
-    </td>
-  </table>
-  
-<% } %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <title>Login and Registration Form</title>
+  <style>
+    .error-message {
+      color: red;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-one-third">
+          <div class="card">
+            <div class="card-content">
+              <div class="tabs is-centered">
+                <ul>
+                  <li class="is-active" id="login-tab"><a>Login</a></li>
+                  <li id="register-tab"><a>Register</a></li>
+                </ul>
+              </div>
+              <div class="content">
+                <div id="login-form">
+                  <h1 class="title has-text-centered">Login</h1>
+                  <form>
+                    <div class="field">
+                      <label class="label">Username</label>
+                      <div class="control">
+                        <input class="input" type="text" placeholder="Enter username">
+                      </div>
+                      <p class="error-message" id="login-username-error"></p>
+                    </div>
+                    <div class="field">
+                      <label class="label">Password</label>
+                      <div class="control">
+                        <input class="input" type="password" placeholder="Enter password">
+                      </div>
+                      <p class="error-message" id="login-password-error"></p>
+                    </div>
+                    <div class="field is-grouped">
+                      <div class="control">
+                        <button class="button is-primary" type="submit">Login</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div id="register-form" style="display: none;">
+                  <h1 class="title has-text-centered">Register</h1>
+                  <form>
+                    <div class="field">
+                      <label class="label">Username</label>
+                      <div class="control">
+                        <input class="input" type="text" placeholder="Enter username">
+                      </div>
+                      <p class="error-message" id="register-username-error"></p>
+                    </div>
+                    <div class="field">
+                      <label class="label">Email</label>
+                      <div class="control">
+                        <input class="input" type="email" placeholder="Enter email">
+                      </div>
+                      <p class="error-message" id="register-email-error"></p>
+                    </div>
+                    <div class="field">
+                      <label class="label">Password</label>
+                      <div class="control">
+                        <input class="input" type="password" placeholder="Enter password">
+                      </div>
+                      <p class="error-message" id="register-password-error"></p>
+                    </div>
+                    <div class="field is-grouped">
+                      <div class="control">
+                        <button class="button is-primary" type="submit">Register</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const loginTab = document.getElementById("login-tab");
+      const registerTab = document.getElementById("register-tab");
+      const loginForm = document.getElementById("login-form");
+      const registerForm = document.getElementById("register-form");
+
+      loginTab.addEventListener("click", function () {
+        loginTab.classList.add("is-active");
+        registerTab.classList.remove("is-active");
+        loginForm.style.display = "block";
+        registerForm.style.display = "none";
+      });
+
+      registerTab.addEventListener("click", function () {
+        registerTab.classList.add("is-active");
+        loginTab.classList.remove("is-active");
+        registerForm.style.display = "block";
+        loginForm.style.display = "none";
+      });
+
+      const loginFormSubmitHandler = function (event) {
+        event.preventDefault();
+
+        const usernameInput = document.querySelector("#login-form input[type='text']");
+        const passwordInput = document.querySelector("#login-form input[type='password']");
+        const usernameError = document.getElementById("login-username-error");
+        const passwordError = document.getElementById("login-password-error");
+
+        clearErrors();
+
+        if (usernameInput.value.trim() === "") {
+          showError(usernameError, "Please enter a username");
+        }
+
+        if (passwordInput.value === "") {
+          showError(passwordError, "Please enter a password");
+        }
+
+        if (isLoginFormValid()) {
+          // Perform login logic here
+          console.log("Login successful");
+          // Clear form fields
+          loginForm.reset();
+          clearErrors();
+        }
+      };
+
+      const registerFormSubmitHandler = function (event) {
+        event.preventDefault();
+
+        const usernameInput = document.querySelector("#register-form input[type='text']");
+        const emailInput = document.querySelector("#register-form input[type='email']");
+        const passwordInput = document.querySelector("#register-form input[type='password']");
+        const usernameError = document.getElementById("register-username-error");
+        const emailError = document.getElementById("register-email-error");
+        const passwordError = document.getElementById("register-password-error");
+
+        clearErrors();
+
+        if (usernameInput.value.trim() === "") {
+          showError(usernameError, "Please enter a username");
+        }
+
+        if (emailInput.value.trim() === "") {
+          showError(emailError, "Please enter an email");
+        } else if (!isValidEmail(emailInput.value.trim())) {
+          showError(emailError, "Please enter a valid email");
+        }
+
+        if (passwordInput.value === "") {
+          showError(passwordError, "Please enter a password");
+        }
+
+        if (isRegisterFormValid()) {
+          // Perform registration logic here
+          console.log("Registration successful");
+          // Clear form fields
+          registerForm.reset();
+          clearErrors();
+        }
+      };
+
+      loginForm.addEventListener("submit", loginFormSubmitHandler);
+      registerForm.addEventListener("submit", registerFormSubmitHandler);
+
+      function showError(element, message) {
+        element.textContent = message;
+      }
+
+      function clearErrors() {
+        const errorElements = document.getElementsByClassName("error-message");
+        for (let i = 0; i < errorElements.length; i++) {
+          errorElements[i].textContent = "";
+        }
+      }
+
+      function isValidEmail(email) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+      }
+
+      function isLoginFormValid() {
+        const usernameError = document.getElementById("login-username-error");
+        const passwordError = document.getElementById("login-password-error");
+
+        return usernameError.textContent === "" && passwordError.textContent === "";
+      }
+
+      function isRegisterFormValid() {
+        const usernameError = document.getElementById("register-username-error");
+        const emailError = document.getElementById("register-email-error");
+        const passwordError = document.getElementById("register-password-error");
+
+        return (
+          usernameError.textContent === "" &&
+          emailError.textContent === "" &&
+          passwordError.textContent === ""
+        );
+      }
+    });
+  </script>
+</body>
+
+</html>
