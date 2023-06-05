@@ -1,3 +1,4 @@
+<!-- login.html -->
 <% include component/navbar.html %>
 <section class="hero is-fullheight" style="background-color:#77a075 ;">
   <div class="hero-body">
@@ -7,17 +8,17 @@
           <div class="card">
             <div class="card-content">
               <h1 class="title">登录</h1>
-              <form>
+              <form action="/login" method="POST"> <!-- 将表单的action属性指向登录请求的路由 -->
                 <div class="field">
                   <label class="label">用户名</label>
                   <div class="control">
-                    <input class="input" type="text" placeholder="Enter your username">
+                    <input class="input" type="text" name="username" placeholder="Enter your username"> <!-- 添加name属性以便在服务器端访问输入的值 -->
                   </div>
                 </div>
                 <div class="field">
                   <label class="label">密码</label>
                   <div class="control">
-                    <input class="input" type="password" placeholder="Enter your password">
+                    <input class="input" type="password" name="password" placeholder="Enter your password"> <!-- 添加name属性以便在服务器端访问输入的值 -->
                   </div>
                 </div>
                 <div class="field">
@@ -43,9 +44,8 @@
 </section>
 <script>
   function jump(url) {
-  location.href=url
-}
+    location.href = url;
+  }
 </script>
 </body>
-
 </html>

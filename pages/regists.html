@@ -1,81 +1,80 @@
 <% include component/navbar.html %>
 
-<div style="background-color:#77a075 ;padding:3%;height: 100%;" >
+<div style="background-color:#77a075 ;padding:3%;height: 100%;">
 
-  <div class="bod box has-text-centered"style=":3%">
+  <div class="bod box has-text-centered" style=":3%">
     <h1 class="tittle h1 has-text-centered">账户注册</h1>
     <div class="formBox has-text-centered">
-        <form>
-          <div class="columns">
-            <div class="column">
-              <div class="field-label is-normal">
-                <label class="label">用户名</label>
-              </div>
-            </div>
-            <div class="column">
-              <p class="control">
-                <input class="input username" type="input" >
-              </p>
-            </div>
-            <div class="column">
-              <p class="tip_user tip">由6~9位数字构成</p>
+      <form id="registrationForm" action="/register" method="post">
+        <div class="columns">
+          <div class="column">
+            <div class="field-label is-normal">
+              <label class="label">用户名</label>
             </div>
           </div>
-          <div class="columns">
-            <div class="column">
-              <div class="field-label is-normal">
-                <label class="label">密码</label>
-              </div>
-            </div>
-            <div class="column">
-              <p class="control">
-                <input class="input password" type="password">
-              </p>
-            </div>
-            <div class="column">
-              <p class="control">
-                <p class="tip_pass tip">6~9位包含数字，字母，特殊字符的密码！</p>
-              </p>
+          <div class="column">
+            <p class="control">
+              <input class="input username" type="input" name="username">
+            </p>
+          </div>
+          <div class="column">
+            <p class="tip_user tip">由6~9位数字构成</p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <div class="field-label is-normal">
+              <label class="label">密码</label>
             </div>
           </div>
-          <div class="columns">
-            <div class="column">
-              <div class="field-label is-normal">
-                <label class="label">确认密码</label>
-              </div>
-            </div>
-            <div class="column">
-              <p class="control">
-                <input class="input password2" type="password">
-              </p>
-            </div>
-            <div class="column">
-              <p class="tip_con tip">与你输入的密码相同</p>
+          <div class="column">
+            <p class="control">
+              <input class="input password" type="password" name="password">
+            </p>
+          </div>
+          <div class="column">
+            <p class="control">
+              <p class="tip_pass tip">6~9位包含数字，字母，特殊字符的密码！</p>
+            </p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <div class="field-label is-normal">
+              <label class="label">确认密码</label>
             </div>
           </div>
-          <div class="columns">
-            <div class="column">
-              <div class="field-label is-normal">
-                <label class="label">邮箱</label>
-              </div>
-            </div>
-            <div class="column">
-              <p class="control">
-                <input class="input username" type="input" >
-              </p>
-            </div>
-            <div class="column">
-              <p class="tip_user tip">由6~9位数字构成</p>
+          <div class="column">
+            <p class="control">
+              <input class="input password2" type="password" name="confirmPassword">
+            </p>
+          </div>
+          <div class="column">
+            <p class="tip_con tip">与你输入的密码相同</p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <div class="field-label is-normal">
+              <label class="label">邮箱</label>
             </div>
           </div>
-          <div class="control">
-            <button class="button is-primary" type="submit">Register</button>
+          <div class="column">
+            <p class="control">
+              <input class="input username" type="input" name="email">
+            </p>
           </div>
-        </form>
-
-      </div>
+          <div class="column">
+            <p class="tip_user tip">由6~9位数字构成</p>
+          </div>
+        </div>
+        <div class="control">
+          <button class="button is-primary" type="submit">注册</button>
+        </div>
+      </form>
     </div>
   </div>
+</div>
 
 <script>
 var password = document.querySelector('.password');
