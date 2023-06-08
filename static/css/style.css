@@ -3,8 +3,10 @@ html,body{
 }
 
 #logo{
-   max-height: 90px;
+   max-height: 80px;
    width: 80px;
+   padding: 0;
+   margin: 0;
 }
 .search{
    width: 70%;
